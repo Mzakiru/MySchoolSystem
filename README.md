@@ -1,4 +1,4 @@
-# TQWAEMS | TAQWA EDUCATION MANAGEMENT SYSTEM
+# TQWAEMS | GAS EDUCATION MANAGEMENT SYSTEM
 A full school management website using flask. Full CRUD( create, read, update, delete ) facility
 
 ## How to work in this project
