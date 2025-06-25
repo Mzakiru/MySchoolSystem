@@ -1,0 +1,45 @@
+{% extends 'layouts/institute_dashboard_base.html' %}
+
+{% block body %}
+<!-- START COUNTER  -->
+<div class="my-4">
+	<div class="row g-3">
+		<div class="col-md-3">
+			<div class="card bg__pallet_4">
+				<div class="card-body">
+					<p class="fs-4 mb-0">
+						{{ total_student }}
+					</p>
+				</div>
+				<div class="card-footer">
+					Total students
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card bg__pallet_2">
+				<div class="card-body">
+					<p class="fs-4 mb-0">
+						{{ total_male_student }}
+					</p>
+				</div>
+				<div class="card-footer">
+					Male students
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<div class="card bg__pallet_5">
+				<div class="card-body">
+					<p class="fs-4 mb-0">
+						{{ total_female_student }}
+					</p>
+				</div>
+				<div class="card-footer">
+					Female students
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock body %}

@@ -1,0 +1,73 @@
+{% extends 'layouts/institute_dashboard_base.html' %}
+
+{% block body %}
+<!-- START ALL STUDENTS TABLE  -->
+<div class="container">
+    <div class="d-flex flex-start align-items-center gap-3">
+        <div>
+            <p class="fs-2 my-3">Admission Center</p>
+        </div>
+
+        <div>
+            <a href="{{ url_for('admission.student_admission') }}" class="btn btn-sm btn-primary">
+                Apply for admission
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- START ALL STUDENTS TABLE  -->
+<div class="container">
+    <p class="fs-5 my-3">Applied Students - <span id="currentYear">0000</span></p>
+    <div class="table-responsive small">
+        <table id="studentsTable" class="display table table-striped table-sm">
+			<thead>
+				<tr>
+					<th>Student ID</th>
+					<th>Name (English)</th>
+					<th>Name (Bangla)</th>
+					<th>Apply Class</th>
+					<th>Marital Status</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Data will be loaded via AJAX -->
+			</tbody>
+		</table>
+    </div>
+</div>
+<!-- END ALL STUDENTS TABLE  -->
+{% endblock body %}
+
+
+{% block page_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let currentYearEl = document.querySelector('#currentYear');
+
+        let currentYear = new Date().getFullYear();
+        currentYearEl.innerText = currentYear;
+    })
+
+	$(document).ready(function() {
+        $('#studentsTable').DataTable({
+            "processing": true,  // Show processing indicator
+            "serverSide": true,   // Enable server-side processing
+            "ajax": {
+                "url": "{{ url_for('institute_dashboard.admission_center_data') }}",  // Flask route for data
+                "type": "POST"  // Use POST request
+            },
+            "columns": [
+                { "data": "student_id" },
+                { "data": "name_english" },
+                { "data": "name_bangla" },
+                { "data": "apply_class" },
+                { "data": "marital_status" },
+                { "data": "details", "orderable": false }  // Disable ordering for details column
+            ],
+            "order": [[0, 'asc']]  // Default sort by first column (student_id)
+        });
+    });
+</script>
+{% endblock page_js %}
