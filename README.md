@@ -3,7 +3,7 @@ A full school management website using flask. Full CRUD( create, read, update, d
 
 ## How to work in this project
 ``` 
-$ git clone https://github.com/mr-teslaa/TaqwaSchool
+$ git clone https://github.com/mr-kabeya/GreenAcresSchool
 ```
 
 
